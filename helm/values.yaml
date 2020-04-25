@@ -101,15 +101,18 @@ config:
         name: Grafana
         subtitle: Metric analytics & dashboards
         url: http://labs-argocd-grafana-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+        target: _blank
       - logo: https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2017/11/prometheus_logo.png
         name: Prometheus
         subtitle: Collect Mertics
         tag: metrics
+        target: _blank
         url: http://labs-argocd-prometheus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
       - logo: images/hoverfly.jpeg
         name: Hoverfly
         subtitle: API Simulations and Testing
         tag: api
+        target: _blank
         url: https://hoverfly-hoverfly-admin-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
   - name: "Project Management"
     icon: "fas fa-tasks"
@@ -118,6 +121,7 @@ config:
         name: Wekan
         subtitle: Wekan Tasks
         tag: Wekan, kanban
+        target: _blank
         url: https://wekan-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com/
       - logo: https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0b2e8ea823612a322cf779c35039d756/mattermost.png
         name: Mattermost
