@@ -52,67 +52,88 @@ config:
         #   tag: ""
         #   url: ""
         #   target: '_blank'
-
   services:
-    - name: "Automation"
-      icon: "fas fa-code-branch"
-      items:
-        - name: "Jenkins"
-          logo: "assets/tools/jenkins.png"
-          subtitle: "Continuous integration server"
-          tag: "CI"
-          url: "https://jenkins-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com"
-          target: '_blank' # optionnal html a tag target attribute
-        - name: "ArgoCD"
-          logo: "https://argoproj.github.io/argo-cd/assets/logo.png"
-          subtitle: "Git driven Operations"
-          tag: "CI, GitOps"
-          url: "https://labs-argocd-server-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com"
-          target: '_blank'
-        - name: "CodeReady Workspaces"
-          logo: "https://github.com/redhat-developer/codeready-workspaces/raw/master/product/branding/CodeReady.png"
-          subtitle: "Cloud hosted dev stack"
-          tag: "dev"
-          url: "https://codeready-crw.apps.hivec.sandbox1604.opentlc.com/dashboard"
-          target: '_blank'
-        - name: "Nexus"
-          logo: "https://user-images.githubusercontent.com/7955995/29498304-ee71d418-85c6-11e7-9f95-e87a4439ed3c.png"
-          subtitle: "Software artifact repository"
-          url: "https://nexus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com"
-          target: '_blank'
-        - name: "SonarQube"
-          logo: "https://www.sonarqube.org/images/downloads/picto.svg"
-          subtitle: "Software quality tooling"
-          url: "http://sonarqube-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com"
-          target: '_blank'
-        - name: "Zalenium"
-          logo: "https://gitlab.com/okj8/zalenium/-/avatar"
-          subtitle: "Browser testing tools"
-          url: "http://zalenium-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com"
-          target: '_blank'
-    - name: "Monitoring"
-      icon: "fas fa-heartbeat"
-      items:
-        - name: "Grafana"
-          logo: "assets/tools/grafana.png"
-          subtitle: "Metric analytics & dashboards"          
-          url: "http://labs-argocd-grafana-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com"
-        - name: "Prometheus"
-          logo: "https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2017/11/prometheus_logo.png"
-          subtitle: "Collect Mertics"
-          tag: "metrics"
-          url: "http://labs-argocd-prometheus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com"          
-    - name: "Project Management"
-      icon: "fas fa-tasks"
-      items:
-        - name: "Wekan"
-          logo: "https://avatars0.githubusercontent.com/u/11725037?s=200&v=4"
-          subtitle: "Wekan Tasks"
-          tag: "Wekan, kanban"
-          url: "https://wekan-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com/"
-        - name: "Mattermost"
-          logo: "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0b2e8ea823612a322cf779c35039d756/mattermost.png"
-          subtitle: "Cluster hosted Chat app"
-          tag: "chat"
-          url: "https://mattermost-team-edition-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com"
-          target: '_blank' # optionnal html a tag target attribute
+  - name: "Automation"
+    icon: "fas fa-code-branch"
+    items:
+      - logo: assets/tools/jenkins.png
+        name: Jenkins
+        subtitle: Continuous integration server
+        tag: CI
+        target: _blank
+        url: https://jenkins-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: https://argoproj.github.io/argo-cd/assets/logo.png
+        name: ArgoCD
+        subtitle: Git driven Operations
+        tag: CI, GitOps
+        target: _blank
+        url: https://labs-argocd-server-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: https://github.com/redhat-developer/codeready-workspaces/raw/master/product/branding/CodeReady.png
+        name: CodeReady Workspaces
+        subtitle: Cloud hosted dev stack
+        tag: dev
+        target: _blank
+        url: https://codeready-crw.apps.hivec.sandbox1604.opentlc.com/dashboard
+      - logo: https://user-images.githubusercontent.com/7955995/29498304-ee71d418-85c6-11e7-9f95-e87a4439ed3c.png
+        name: Nexus
+        subtitle: Software artifact repository
+        target: _blank
+        url: https://nexus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: https://www.sonarqube.org/images/downloads/picto.svg
+        name: SonarQube
+        subtitle: Software quality tooling
+        target: _blank
+        url: http://sonarqube-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: https://gitlab.com/okj8/zalenium/-/avatar
+        name: Zalenium
+        subtitle: Browser testing tools
+        target: _blank
+        url: http://zalenium-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: images/tekton.png
+        name: Tekton
+        subtitle: Kuberntes native piplines
+        target: _blank
+        url: 'https://console-openshift-console.apps.hivec.sandbox1604.opentlc.com/k8s/ns/labs-ci-cd/tekton.dev~v1alpha1~Pipeline'
+  - name: "Monitoring"
+    icon: "fas fa-heartbeat"
+    items:
+      - logo: assets/tools/grafana.png
+        name: Grafana
+        subtitle: Metric analytics & dashboards
+        url: http://labs-argocd-grafana-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2017/11/prometheus_logo.png
+        name: Prometheus
+        subtitle: Collect Mertics
+        tag: metrics
+        url: http://labs-argocd-prometheus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: images/hoverfly.jpeg
+        name: Hoverfly
+        subtitle: API Simulations and Testing
+        tag: api
+        url: https://hoverfly-hoverfly-admin-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+  - name: "Project Management"
+    icon: "fas fa-tasks"
+    items:
+      - logo: https://avatars0.githubusercontent.com/u/11725037?s=200&v=4
+        name: Wekan
+        subtitle: Wekan Tasks
+        tag: Wekan, kanban
+        url: https://wekan-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com/
+      - logo: https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0b2e8ea823612a322cf779c35039d756/mattermost.png
+        name: Mattermost
+        subtitle: Cluster hosted Chat app
+        tag: chat
+        target: _blank
+        url: https://mattermost-team-edition-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: images/etherpad.jpeg
+        name: Etherpad
+        subtitle: Collaborative text pad
+        tag: write, text
+        target: _blank
+        url: https://etherpad-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: images/owncloud.png
+        name: Owncloud
+        subtitle: Share your documents
+        tag: sharing, documents
+        target: _blank
+        url: https://owncloud.apps.hivec.sandbox1604.opentlc.com
