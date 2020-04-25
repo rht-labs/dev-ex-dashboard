@@ -110,6 +110,7 @@ services:
         name: Wekan
         subtitle: Wekan Tasks
         tag: Wekan, kanban
+        target: _blank
         url: https://wekan-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com/
       - logo: https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0b2e8ea823612a322cf779c35039d756/mattermost.png
         name: Mattermost
