@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <title>Homer</title>
+  <title>Labs Dev Ex</title>
   <link defer rel="stylesheet" href="vendors/font-awesone.min.css">
   <link defer rel="stylesheet" href="vendors/bulma.min.css">
   <link rel="stylesheet" href="app.css">
@@ -71,6 +71,13 @@
       </div>
     </div>
 
+      <div>
+        <div style="padding-top:15%;overflow: hidden;">
+          <iframe src="carousel.html" frameborder="0" allowfullscreen
+            style="position:absolute;top:151px;left:0px;width:100%;height:25%;"></iframe>
+        </div>
+      </div>
+
     <section id="main-section" class="section">
       <div v-cloak class="container">
         <div v-if="offline" class="offline-message">
@@ -117,6 +124,7 @@
         </div>
       </div>
     </section>
+
     <footer class="footer">
         <div class="container">
           <div class="content has-text-centered" v-if="config.footer" v-html="config.footer">

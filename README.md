@@ -32,6 +32,10 @@ sudo docker run -p 8080:8080 -v /your/local/config.yml:/www/config.yml -v /your/
 
 **How to build / install it?** There is no build system (😱), use it like that! It's meant to be stupid simple & zero maintenance required. Just copy the static files somewhere, and visit the `index.html`.
 
+```
+npm install -g node-static
+static .
+```
 
 ## Configuration
 

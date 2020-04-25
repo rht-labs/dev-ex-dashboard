@@ -57,7 +57,7 @@ const app = new Vue({
             });
         },
         getConfig: function (event) {
-            return fetch('config.yml').then(function (response) {
+            return fetch('/config/config.yml').then(function (response) {
                 if (response.status != 200) {
                     return
                 }
