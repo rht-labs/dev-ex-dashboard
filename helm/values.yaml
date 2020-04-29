@@ -67,7 +67,7 @@ config:
         subtitle: Git driven Operations
         tag: CI, GitOps
         target: _blank
-        url: https://labs-argocd-server-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+        url: https://argocd-server-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
       - logo: https://github.com/redhat-developer/codeready-workspaces/raw/master/product/branding/CodeReady.png
         name: CodeReady Workspaces
         subtitle: Cloud hosted dev stack
@@ -100,14 +100,14 @@ config:
       - logo: assets/tools/grafana.png
         name: Grafana
         subtitle: Metric analytics & dashboards
-        url: http://labs-argocd-grafana-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+        url: http://argocd-grafana-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
         target: _blank
       - logo: https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2017/11/prometheus_logo.png
         name: Prometheus
         subtitle: Collect Mertics
         tag: metrics
         target: _blank
-        url: http://labs-argocd-prometheus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+        url: http://argocd-prometheus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
       - logo: images/hoverfly.jpeg
         name: Hoverfly
         subtitle: API Simulations and Testing
