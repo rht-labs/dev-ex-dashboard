@@ -1,350 +1,373 @@
 <!DOCTYPE html>
 <html lang="en" style="overflow: hidden;">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-title" content="CodePen">
     <title>Ubiquitous Journey - Whats in the BOX</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <style>
         body,
         html {
-          margin: 0;
-          background: #0e0f11;
-          color: #ecf0f1;
-          font-family: 'Open Sans', sans-serif;
-          min-height: 100vh;
-          display: -webkit-box;
-          display: flex;
-          -webkit-box-orient: horizontal;
-          -webkit-box-direction: normal;
-                  flex-direction: row;
-          -webkit-box-align: center;
-                  align-items: center;
-          width: 100%;
+            margin: 0;
+            background: #0e0f11;
+            color: #ecf0f1;
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-direction: row;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 100%;
         }
+        
         h1,
         p {
-          text-align: center;
+            text-align: center;
         }
+        
         p {
-          width: 100%;
-          max-width: 500px;
-          margin: auto;
-          padding-top: 15px;
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            padding-top: 15px;
         }
+        
         a:link,
         a:hover,
         a:active,
         a:visited {
-          -webkit-transition: color 150ms;
-          transition: color 150ms;
-          color: #95a5a6;
-          text-decoration: none;
+            -webkit-transition: color 150ms;
+            transition: color 150ms;
+            color: #95a5a6;
+            text-decoration: none;
         }
+        
         a:hover {
-          color: #7f8c8d;
-          text-decoration: underline;
+            color: #7f8c8d;
+            text-decoration: underline;
         }
+        
         .contain {
-          width: 100%;
+            width: 100%;
         }
+        
         .row {
-          overflow: scroll;
-          width: 100%;
+            overflow: scroll;
+            width: 100%;
         }
         /* Hide scrollbar for Chrome, Safari and Opera */
+        
         .row::-webkit-scrollbar {
             display: none;
         }
-
         /* Hide scrollbar for IE and Edge */
+        
         .row {
             -ms-overflow-style: none;
         }
+        
         .row__inner {
-          -webkit-transition: 450ms -webkit-transform;
-          transition: 450ms -webkit-transform;
-          transition: 450ms transform;
-          transition: 450ms transform, 450ms -webkit-transform;
-          font-size: 0;
-          white-space: nowrap;
-          margin: 70.3125px 0;
-          padding-bottom: 10px;
+            -webkit-transition: 450ms -webkit-transform;
+            transition: 450ms -webkit-transform;
+            transition: 450ms transform;
+            transition: 450ms transform, 450ms -webkit-transform;
+            font-size: 0;
+            white-space: nowrap;
+            margin: 70.3125px 0;
+            padding-bottom: 10px;
         }
+        
         .tile {
-          position: relative;
-          display: inline-block;
-          width: 250px;
-          height: 140.625px;
-          margin-right: 10px;
-          font-size: 20px;
-          cursor: pointer;
-          -webkit-transition: 450ms all;
-          transition: 450ms all;
-          -webkit-transform-origin: center left;
-                  transform-origin: center left;
+            position: relative;
+            display: inline-block;
+            width: 250px;
+            height: 140.625px;
+            margin-right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            -webkit-transition: 450ms all;
+            transition: 450ms all;
+            -webkit-transform-origin: center left;
+            transform-origin: center left;
         }
+        
         .tile__img {
-          width: 250px;
-          height: 140.625px;
-          -o-object-fit: cover;
-             object-fit: cover;
+            width: 250px;
+            height: 140.625px;
+            -o-object-fit: cover;
+            object-fit: cover;
         }
+        
         .tile__details {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          top: 0;
-          font-size: 10px;
-          opacity: 0;
-          background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.9)), to(rgba(0,0,0,0)));
-          background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-          -webkit-transition: 450ms opacity;
-          transition: 450ms opacity;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            font-size: 10px;
+            opacity: 0;
+            background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0)));
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+            -webkit-transition: 450ms opacity;
+            transition: 450ms opacity;
         }
+        
         .tile__details:after,
         .tile__details:before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          display: #000;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: #000;
         }
+        
         .tile__details:after {
-          margin-top: -25px;
-          margin-left: -25px;
-          width: 50px;
-          height: 50px;
-          border: 3px solid #ecf0f1;
-          line-height: 50px;
-          text-align: center;
-          border-radius: 100%;
-          background: rgba(0,0,0,0.5);
-          z-index: 1;
+            margin-top: -25px;
+            margin-left: -25px;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #ecf0f1;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
+        
         .tile__details:before {
-          content: '▶';
-          left: 0;
-          width: 100%;
-          font-size: 30px;
-          margin-left: 7px;
-          margin-top: -18px;
-          text-align: center;
-          z-index: 2;
+            content: '▶';
+            left: 0;
+            width: 100%;
+            font-size: 30px;
+            margin-left: 7px;
+            margin-top: -18px;
+            text-align: center;
+            z-index: 2;
         }
+        
         .tile:hover .tile__details {
-          opacity: 1;
+            opacity: 1;
         }
+        
         .tile__title {
-          position: absolute;
-          bottom: 0;
-          padding: 10px;
+            position: absolute;
+            bottom: 0;
+            padding: 10px;
         }
+        
         .row__inner:hover {
-          -webkit-transform: translate3d(-62.5px, 0, 0);
-                  transform: translate3d(-62.5px, 0, 0);
+            -webkit-transform: translate3d(-62.5px, 0, 0);
+            transform: translate3d(-62.5px, 0, 0);
         }
+        
         .row__inner:hover .tile {
-          opacity: 0.3;
+            opacity: 0.3;
         }
+        
         .row__inner:hover .tile:hover {
-          -webkit-transform: scale(1.5);
-                  transform: scale(1.5);
-          opacity: 1;
+            -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+            opacity: 1;
         }
-        .tile:hover ~ .tile {
-          -webkit-transform: translate3d(125px, 0, 0);
-                  transform: translate3d(125px, 0, 0);
+        
+        .tile:hover~.tile {
+            -webkit-transform: translate3d(125px, 0, 0);
+            transform: translate3d(125px, 0, 0);
         }
-        </style>
-        <script>
-          window.console = window.console || function(t) {};
-        </script>
-        <script>
-          if (document.location.search.match(/type=embed/gi)) {
+    </style>
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
             window.parent.postMessage("resize", "*");
-          }
-        </script>
+        }
+    </script>
 </head>
-    <body translate="no">
-<div class="contain">
 
-  <p>
-    Whats in the BOX !
-  </p>
+<body translate="no">
+    <div class="contain">
 
-  <div class="row">
-    <div class="row__inner">
+        <p>
+            Whats in the BOX !
+        </p>
 
-      <div class="tile">
-          <div class="tile__media">
-              <img class="tile__img" src="https://argoproj.github.io/argo-cd/assets/logo.png" alt=""  />
-          </div>
-          <div class="tile__details" onclick="window.open('https://argocd-server-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','argocd');">
-              <div class="tile__title">
-              argocd
-              </div>
-          </div>
-      </div>
+        <div class="row">
+            <div class="row__inner">
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0b2e8ea823612a322cf779c35039d756/mattermost.png" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('https://mattermost-team-edition-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','mattermost');">
-          <div class="tile__title">
-            mattermost
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="https://argoproj.github.io/argo-cd/assets/logo.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://argocd-server-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','argocd');">
+                        <div class="tile__title">
+                            argocd
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="https://user-images.githubusercontent.com/7955995/29498304-ee71d418-85c6-11e7-9f95-e87a4439ed3c.png" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('https://nexus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','nexus');">
-          <div class="tile__title">
-            nexus
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0b2e8ea823612a322cf779c35039d756/mattermost.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://mattermost-team-edition-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','mattermost');">
+                        <div class="tile__title">
+                            mattermost
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="images/jenkins.jpeg" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('https://jenkins-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','jenkins');">
-          <div class="tile__title">
-            jenkins
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="https://user-images.githubusercontent.com/7955995/29498304-ee71d418-85c6-11e7-9f95-e87a4439ed3c.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://nexus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','nexus');">
+                        <div class="tile__title">
+                            nexus
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="images/pact.png" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('http://pact-broker-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','pact');">
-          <div class="tile__title">
-            pact
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="images/jenkins.jpeg" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://jenkins-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','jenkins');">
+                        <div class="tile__title">
+                            jenkins
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="https://www.sonarqube.org/images/downloads/picto.svg" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('http://sonarqube-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','sonarqube');">
-          <div class="tile__title">
-            sonarqube
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="images/pact.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('http://pact-broker-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','pact');">
+                        <div class="tile__title">
+                            pact
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="https://github.com/redhat-developer/codeready-workspaces/raw/master/product/branding/CodeReady.png" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('https://codeready-crw.apps.hivec.sandbox1604.opentlc.com','crw');">
-          <div class="tile__title">
-            code ready workspaces
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="https://www.sonarqube.org/images/downloads/picto.svg" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('http://sonarqube-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','sonarqube');">
+                        <div class="tile__title">
+                            sonarqube
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="https://gitlab.com/okj8/zalenium/-/avatar" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('http://zalenium-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','zalenium');">
-          <div class="tile__title">
-            zalenium
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="https://github.com/redhat-developer/codeready-workspaces/raw/master/product/branding/CodeReady.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://codeready-crw.apps.hivec.sandbox1604.opentlc.com','crw');">
+                        <div class="tile__title">
+                            code ready workspaces
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="images/hoverfly.jpeg" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('https://hoverfly-hoverfly-admin-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','hoverfly');">
-          <div class="tile__title">
-            hoverfly
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="https://gitlab.com/okj8/zalenium/-/avatar" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('http://zalenium-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','zalenium');">
+                        <div class="tile__title">
+                            zalenium
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="https://avatars0.githubusercontent.com/u/11725037?s=200&v=4" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('https://wekan-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','wekan');">
-          <div class="tile__title">
-            wekan
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="images/hoverfly.jpeg" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://hoverfly-hoverfly-admin-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','hoverfly');">
+                        <div class="tile__title">
+                            hoverfly
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2017/11/prometheus_logo.png" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('http://argocd-prometheus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','prometheus');">
-          <div class="tile__title">
-            prometheus
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="https://avatars0.githubusercontent.com/u/11725037?s=200&v=4" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://wekan-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','wekan');">
+                        <div class="tile__title">
+                            wekan
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="assets/tools/grafana.png" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('http://argocd-grafana-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','grafana');">
-          <div class="tile__title">
-            grafana
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2017/11/prometheus_logo.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('http://argocd-prometheus-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','prometheus');">
+                        <div class="tile__title">
+                            prometheus
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="images/tekton.png" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('https://console-openshift-console.apps.hivec.sandbox1604.opentlc.com/k8s/ns/labs-ci-cd/tekton.dev~v1alpha1~Pipeline','tekton');">
-          <div class="tile__title">
-            tekton
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="assets/tools/grafana.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('http://argocd-grafana-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','grafana');">
+                        <div class="tile__title">
+                            grafana
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="images/etherpad.jpeg" alt=""  />
-        </div>
-        <div class="tile__details" onclick="window.open('https://etherpad-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','etherpad');">
-          <div class="tile__title">
-            etherpad
-          </div>
-        </div>
-      </div>
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="images/tekton.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://console-openshift-console.apps.hivec.sandbox1604.opentlc.com/k8s/ns/labs-ci-cd/tekton.dev~v1alpha1~Pipeline','tekton');">
+                        <div class="tile__title">
+                            tekton
+                        </div>
+                    </div>
+                </div>
 
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="images/owncloud.png" alt=""  />
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="images/etherpad.jpeg" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://etherpad-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com','etherpad');">
+                        <div class="tile__title">
+                            etherpad
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile">
+                    <div class="tile__media">
+                        <img class="tile__img" src="images/owncloud.png" alt="" />
+                    </div>
+                    <div class="tile__details" onclick="window.open('https://owncloud.apps.hivec.sandbox1604.opentlc.com','owncloud');">
+                        <div class="tile__title">
+                            owncloud
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="tile__details" onclick="window.open('https://owncloud.apps.hivec.sandbox1604.opentlc.com','owncloud');">
-          <div class="tile__title">
-            owncloud
-          </div>
-        </div>
-      </div>
 
     </div>
-  </div>
-
-</div>
 </body>
+
 </html>
