@@ -106,6 +106,12 @@ services:
         tag: api
         target: _blank
         url: https://hoverfly-hoverfly-admin-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
+      - logo: images/pact.png
+        name: Pact
+        subtitle: Consumer Driven Contract Testing
+        tag: api
+        target: _blank
+        url: http://pact-broker-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com/
   - name: "Project Management"
     icon: "fas fa-tasks"
     items:
