@@ -6,13 +6,18 @@ const app = new Vue({
         filter: '',
         vlayout: true,
         isDark: null,
+        isCool: null,
         showMenu: false
     },
-    created: async function () {
+    created: async function() {
         let that = this;
 
         this.isDark = 'overrideDark' in localStorage ?
             JSON.parse(localStorage.overrideDark) : matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if ('isCool' in localStorage) {
+            this.isCool = JSON.parse(localStorage.isCool)
+        }
 
         if ('vlayout' in localStorage) {
             this.vlayout = JSON.parse(localStorage.vlayout)
@@ -20,7 +25,7 @@ const app = new Vue({
 
         this.checkOffline();
         try {
-            this.config =  await this.getConfig();
+            this.config = await this.getConfig();
             document.title = this.config.title + ' | Homer';
         } catch (error) {
             this.offline = true;
@@ -28,46 +33,46 @@ const app = new Vue({
 
         // Look for a new message if an endpoint is provided.
         if (this.config.message && this.config.message.url) {
-            this.getMessage(this.config.message.url).then(function(message){
+            this.getMessage(this.config.message.url).then(function(message) {
                 // keep the original config value if no value is provided by the endpoint
-                for (const prop of ['title','style','content']) {
+                for (const prop of['title', 'style', 'content']) {
                     if (prop in message && message[prop] !== null) {
                         that.config.message[prop] = message[prop];
-                    }    
+                    }
                 }
             });
         }
 
-        document.addEventListener('visibilitychange', function () {
+        document.addEventListener('visibilitychange', function() {
             if (document.visibilityState == "visible") {
                 that.checkOffline();
             }
         }, false);
     },
     methods: {
-        checkOffline: function () {
+        checkOffline: function() {
             let that = this;
             return fetch(window.location.href + "?alive", {
                 method: 'HEAD',
                 cache: 'no-store'
-            }).then(function () {
+            }).then(function() {
                 that.offline = false;
-            }).catch(function () {
+            }).catch(function() {
                 that.offline = true;
             });
         },
-        getConfig: function (event) {
-            return fetch('/config/config.yml').then(function (response) {
+        getConfig: function(event) {
+            return fetch('/config/config.yml').then(function(response) {
                 if (response.status != 200) {
                     return
                 }
-                return response.text().then(function (body) {
+                return response.text().then(function(body) {
                     return jsyaml.load(body);
                 });
             });
         },
-        getMessage: function (url) {
-            return fetch(url).then(function (response) {
+        getMessage: function(url) {
+            return fetch(url).then(function(response) {
                 if (response.status != 200) {
                     return;
                 }
@@ -76,8 +81,12 @@ const app = new Vue({
         },
         toggleTheme: function() {
             this.isDark = !this.isDark;
-            localStorage.overrideDark = this.isDark; 
-        }, 
+            localStorage.overrideDark = this.isDark;
+        },
+        toggleCool: function() {
+            this.isCool = !this.isCool;
+            localStorage.isCool = this.isCool;
+        },
         toggleLayout: function() {
             this.vlayout = !this.vlayout;
             localStorage.vlayout = this.vlayout;
@@ -86,8 +95,8 @@ const app = new Vue({
             this.showMenu = !this.showMenu;
         },
         matchesFilter: function(item) {
-            return (item.name.toLowerCase().includes(this.filter.toLowerCase())
-                || (item.tag && item.tag.toLowerCase().includes(this.filter.toLowerCase())))
+            return (item.name.toLowerCase().includes(this.filter.toLowerCase()) ||
+                (item.tag && item.tag.toLowerCase().includes(this.filter.toLowerCase())))
         },
         firstMatchingService: function() {
             for (group of this.config.services) {
@@ -168,7 +177,7 @@ Vue.component('service', {
 });
 
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
+    window.addEventListener('load', function() {
         navigator.serviceWorker.register('worker.js');
     });
 }

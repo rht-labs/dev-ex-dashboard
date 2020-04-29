@@ -80,7 +80,7 @@ services:
     icon: "fa-code-fork"
     items:
       - name: "Jenkins"
-        logo: "/assets/tools/jenkins.png"
+        logo: "/images/jenkins.jpeg"
         # Alternatively a fa icon can be provided:
         # icon: "fab fa-jenkins"
         subtitle: "Continuous integration server"

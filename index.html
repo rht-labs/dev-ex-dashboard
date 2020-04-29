@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <title>Labs Dev Ex</title>
     <link defer rel="stylesheet" href="vendors/font-awesone.min.css">
     <link defer rel="stylesheet" href="vendors/bulma.min.css">
@@ -45,6 +45,7 @@
                             </div>
                             <div class="navbar-end">
                                 <div class="navbar-item">
+                                    <a v-on:click="toggleCool()" aria-label="Toggle cool mode" class="icon-button"><i class="fas fa-cat"></i>
                                     <a v-on:click="toggleTheme()" aria-label="Toggle dark mode" class="icon-button"><i class="fas fa-adjust"></i>
                   </a>
                                     <a v-on:click="toggleLayout()" class="icon-button"><i
@@ -62,46 +63,46 @@
         </div>
 
         <!-- enable this div for netflix style carousel -->
-        <!--div>
-          <iframe src="carousel.html" frameborder="0" style="width:100%;height: 270px;"></iframe>
-        </div-->
+        <div id="iframe" :class="[isCool ? 'is-shown' : 'is-hidden']">
+            <iframe src=" carousel.html " frameborder="0 " style="width:100%;height: 270px; "></iframe>
+        </div>
 
-        <section id="main-section" class="section">
-            <div v-cloak class="container">
-                <div v-if="offline" class="offline-message">
-                    <i class="far fa-dizzy"></i>
-                    <h1>You're offline bro. <i class="fas fa-redo-alt" v-on:click="checkOffline()"></i></h1>
+        <section id="main-section " class="section ">
+            <div v-cloak class="container ">
+                <div v-if="offline " class="offline-message ">
+                    <i class="far fa-dizzy "></i>
+                    <h1>You're offline bro. <i class="fas fa-redo-alt " v-on:click="checkOffline() "></i></h1>
                 </div>
                 <div v-else>
                     <!-- Optional messages -->
-                    <article v-if="config && config.message" class="message" :class="config.message.style">
-                        <div v-if="config.message.title" class="message-header">
+                    <article v-if="config && config.message " class="message " :class="config.message.style ">
+                        <div v-if="config.message.title " class="message-header ">
                             <p>{{ config.message.title }}</p>
                         </div>
-                        <div v-if="config.message.content" class="message-body">
+                        <div v-if="config.message.content " class="message-body ">
                             {{ config.message.content }}
                         </div>
                     </article>
 
-                    <h2 v-if="filter"><i class="fas fa-search"></i> Search</h2>
+                    <h2 v-if="filter "><i class="fas fa-search "></i> Search</h2>
 
                     <!-- Horizontal layout -->
-                    <div v-if="!vlayout || filter" class="columns is-multiline">
-                        <template v-for="(group, index) in config.services">
-              <h2 v-if="!filter && group.name" class="column is-full"><i v-if="group.icon" :class="group.icon"></i><span
+                    <div v-if="!vlayout || filter " class="columns is-multiline ">
+                        <template v-for="(group, index) in config.services ">
+              <h2 v-if="!filter && group.name " class="column is-full "><i v-if="group.icon " :class="group.icon "></i><span
                   v-else>#</span>
                 {{ group.name }}</h2>
-              <service v-for="item in group.items" v-bind:item="item" class="column is-one-third-widescreen"
-                v-if="!filter || (item && matchesFilter(item))">
+              <service v-for="item in group.items " v-bind:item="item " class="column is-one-third-widescreen "
+                v-if="!filter || (item && matchesFilter(item)) ">
               </service>
             </template>
                     </div>
 
                     <!-- Vertical layout -->
-                    <div v-if="!filter && vlayout" class="columns is-multiline layout-vertical">
-                        <div class="column is-one-third-widescreen" v-for="(group, index) in config.services">
-                            <h2 v-if="!filter && group.name"><i v-if="group.icon" :class="group.icon"></i><span v-else>#</span> {{ group.name }}</h2>
-                            <service v-for="item in group.items" v-bind:item="item" v-if="!filter || (item && matchesFilter(item))">
+                    <div v-if="!filter && vlayout " class="columns is-multiline layout-vertical ">
+                        <div class="column is-one-third-widescreen " v-for="(group, index) in config.services ">
+                            <h2 v-if="!filter && group.name "><i v-if="group.icon " :class="group.icon "></i><span v-else>#</span> {{ group.name }}</h2>
+                            <service v-for="item in group.items " v-bind:item="item " v-if="!filter || (item && matchesFilter(item)) ">
                             </service>
                         </div>
                     </div>
@@ -111,18 +112,18 @@
             </div>
         </section>
 
-        <footer class="footer">
-            <div class="container">
-                <div class="content has-text-centered" v-if="config.footer" v-html="config.footer">
+        <footer class="footer ">
+            <div class="container ">
+                <div class="content has-text-centered " v-if="config.footer " v-html="config.footer ">
 
                 </div>
             </div>
         </footer>
     </div>
 
-    <script src="vendors/vue.min.js"></script>
-    <script src="vendors/js-yaml.min.js"></script>
-    <script src="app.js"></script>
+    <script src="vendors/vue.min.js "></script>
+    <script src="vendors/js-yaml.min.js "></script>
+    <script src="app.js "></script>
 </body>
 
 </html>
