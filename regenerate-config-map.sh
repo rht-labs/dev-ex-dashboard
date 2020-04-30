@@ -5,7 +5,7 @@ CRWNS=crw
 HOMERNS=labs-ci-cd
 OWNCLOUDNS=owncloud
 
-oc apply -n ${HOMERNS} -f- <<EOF
+cat <<EOF | oc apply -n ${HOMERNS} -f-
 apiVersion: v1
 data:
   conf: |
