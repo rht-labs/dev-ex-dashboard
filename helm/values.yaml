@@ -3,7 +3,7 @@ app_name: dev-ex-dashboard
 # Docker deets
 image_repository: quay.io
 image_name: dev-ex-dashboard
-image_namespace: eformat
+image_namespace: labs-ci-cd
 # likely over written by the Argo definition
 app_tag: latest
 

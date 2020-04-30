@@ -32,6 +32,7 @@ sudo docker run -p 8080:8080 -v /your/local/config.yml:/www/config.yml -v /your/
 
 **How to build / install it?** There is no build system (😱), use it like that! It's meant to be stupid simple & zero maintenance required. Just copy the static files somewhere, and visit the `index.html`.
 
+You can use node and npm to serve locally:
 ```
 npm install -g node-static
 static .
@@ -40,7 +41,6 @@ static .
 ## Configuration
 
 Title, icons, links, colors, and services can be configured in the `config.yml` file, using [yaml](http://yaml.org/) format.
-
 
 ```yaml
 ---
