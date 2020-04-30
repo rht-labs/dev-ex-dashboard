@@ -23,7 +23,7 @@ config:
   # message:
   #   # url: https://....
   #   style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
-  #   title: "Demo !" 
+  #   title: "Demo !"
   #   content: "This is a dummy homepage demo. Find more information on github.com/bastienwirtz/homer"
 
   # Optional navbar
@@ -32,7 +32,7 @@ config:
     - name: "Ubiquitous Journey"
       icon: "fab fa-github"
       url: "https://github.com/rht-labs/ubiquitous-journey"
-      target: '_blank' # optionnal html a tag target attribute
+      target: '_blank'
     - name: "Open Management Portal"
       icon: "fab fa-github"
       url: "https://github.com/rht-labs/open-management-portal"
@@ -93,7 +93,7 @@ config:
         name: Tekton
         subtitle: Kuberntes native piplines
         target: _blank
-        url: 'https://console-openshift-console
+        url: https://console-openshift-console
   - name: "Monitoring"
     icon: "fas fa-heartbeat"
     items:
