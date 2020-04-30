@@ -45,11 +45,9 @@
                             </div>
                             <div class="navbar-end">
                                 <div class="navbar-item">
-                                    <a v-on:click="toggleCool()" aria-label="Toggle cool mode" class="icon-button"><i class="fas fa-cat"></i>
-                                    <a v-on:click="toggleTheme()" aria-label="Toggle dark mode" class="icon-button"><i class="fas fa-adjust"></i>
-                  </a>
-                                    <a v-on:click="toggleLayout()" class="icon-button"><i
-                      :class="['fas', vlayout ? 'fa-list' : 'fa-columns']"></i></a>
+                                    <a v-on:click="toggleCool()" aria-label="Toggle cool mode" class="icon-button"><i class="fas fa-cat"></i></a>
+                                    <a v-on:click="toggleTheme()" aria-label="Toggle dark mode" class="icon-button"><i class="fas fa-adjust"></i></a>
+                                    <a v-on:click="toggleLayout()" class="icon-button"><i :class="['fas', vlayout ? 'fa-list' : 'fa-columns']"></i></a>
                                     <div class="search-bar">
                                         <label for="search" class="search-label"></label>
                                         <input type="text" id="search" ref="search" v-model="filter" v-on:keyup.enter.exact="navigateToFirstService()" v-on:keyup.alt.enter="navigateToFirstService('_blank')" />
@@ -62,16 +60,187 @@
             </div>
         </div>
 
-        <!-- enable this div for netflix style carousel -->
-        <div id="iframe" :class="[isCool ? 'is-shown' : 'is-hidden']">
-            <iframe src=" carousel.html " frameborder="0 " style="width:100%;height: 270px; "></iframe>
+        <div id="carousel" :class="[isCool ? 'is-shown' : 'is-hidden '] ">
+            <p>Whats in the BOX !</p>
+            <div class="row">
+                <div class="row__inner">
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="https://argoproj.github.io/argo-cd/assets/logo.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('argocd'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                argocd
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0b2e8ea823612a322cf779c35039d756/mattermost.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('mattermost'); navigateToFirstService(); setFilter('');">
+                            <div class="tile__title">
+                                mattermost
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="https://user-images.githubusercontent.com/7955995/29498304-ee71d418-85c6-11e7-9f95-e87a4439ed3c.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('nexus'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                nexus
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="images/jenkins.jpeg" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('jenkins'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                jenkins
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="images/pact.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('pact'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                pact
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="https://www.sonarqube.org/images/downloads/picto.svg" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('sonarqube'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                sonarqube
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="https://github.com/redhat-developer/codeready-workspaces/raw/master/product/branding/CodeReady.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('codeready'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                code ready workspaces
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="https://gitlab.com/okj8/zalenium/-/avatar" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('zalenium'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                zalenium
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="images/hoverfly.jpeg" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('hoverfly'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                hoverfly
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="https://avatars0.githubusercontent.com/u/11725037?s=200&v=4" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('wekan'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                wekan
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2017/11/prometheus_logo.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('prometheus'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                prometheus
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="images/grafana.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('grafana'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                grafana
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="images/tekton.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('tekton'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                tekton
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="images/etherpad.jpeg" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('etherpad'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                etherpad
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile">
+                        <div class="tile__media">
+                            <img class="tile__img" src="images/owncloud.png" alt="" />
+                        </div>
+                        <div class="tile__details" v-on:click="setFilter('owncloud'); navigateToFirstService(); setFilter('')">
+                            <div class="tile__title">
+                                owncloud
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         <section id="main-section " class="section ">
             <div v-cloak class="container ">
                 <div v-if="offline " class="offline-message ">
                     <i class="far fa-dizzy "></i>
-                    <h1>You're offline bro. <i class="fas fa-redo-alt " v-on:click="checkOffline() "></i></h1>
+                    <h1>You're offline bro. <i class="fas fa-redo-alt " v-on:click="checkOffline() ">
+            </i>
+                    </h1>
                 </div>
                 <div v-else>
                     <!-- Optional messages -->
@@ -124,6 +293,7 @@
     <script src="vendors/vue.min.js "></script>
     <script src="vendors/js-yaml.min.js "></script>
     <script src="app.js "></script>
+
 </body>
 
 </html>

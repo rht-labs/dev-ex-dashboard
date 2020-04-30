@@ -94,6 +94,9 @@ const app = new Vue({
         toggleMenu: function() {
             this.showMenu = !this.showMenu;
         },
+        setFilter: function(name) {
+            this.filter = name;
+        },
         matchesFilter: function(item) {
             return (item.name.toLowerCase().includes(this.filter.toLowerCase()) ||
                 (item.tag && item.tag.toLowerCase().includes(this.filter.toLowerCase())))
@@ -150,7 +153,7 @@ Vue.component('service', {
     props: ['item'],
     template: `<div>
     <div class="card">
-        <a :href="item.url" :target="item.target">
+        <a :href="item.url" :target="item.target" :id="item.name">
             <div class="card-content">
                 <div class="media">
                     <div v-if="item.logo" class="media-left">

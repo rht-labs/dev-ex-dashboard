@@ -11,7 +11,7 @@ data:
   conf: |
     footer: <p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>,
       <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font
-      awesome</a> // Fork me on <a href="https://github.com/bastienwirtz/homer"><i class="fab
+      awesome</a><i class="fab
       fa-github-alt"></i></a></p>
     links:
     - icon: fab fa-github
@@ -34,13 +34,13 @@ data:
       - logo: assets/tools/jenkins.png
         name: Jenkins
         subtitle: Continuous integration server
-        tag: CI
+        tag: ci
         target: _blank
         url: https://$(oc -n ${CICDNS} get route jenkins -o custom-columns=ROUTE:.spec.host --no-headers)
       - logo: https://argoproj.github.io/argo-cd/assets/logo.png
         name: ArgoCD
         subtitle: Git driven Operations
-        tag: CI, GitOps
+        tag: ci, gitops
         target: _blank
         url: https://$(oc -n ${CICDNS} get route argocd-server -o custom-columns=ROUTE:.spec.host --no-headers)
       - logo: https://github.com/redhat-developer/codeready-workspaces/raw/master/product/branding/CodeReady.png
@@ -52,21 +52,25 @@ data:
       - logo: https://user-images.githubusercontent.com/7955995/29498304-ee71d418-85c6-11e7-9f95-e87a4439ed3c.png
         name: Nexus
         subtitle: Software artifact repository
+        tag: dev, artifacts
         target: _blank
         url: https://$(oc -n ${CICDNS} get route nexus -o custom-columns=ROUTE:.spec.host --no-headers)
       - logo: https://www.sonarqube.org/images/downloads/picto.svg
         name: SonarQube
         subtitle: Software quality tooling
+        tag: testing, quality
         target: _blank
         url: http://$(oc -n ${CICDNS} get route sonarqube -o custom-columns=ROUTE:.spec.host --no-headers)
       - logo: https://gitlab.com/okj8/zalenium/-/avatar
         name: Zalenium
         subtitle: Browser testing tools
+        tag: testing, browser
         target: _blank
         url: http://$(oc -n ${CICDNS} get route zalenium -o custom-columns=ROUTE:.spec.host --no-headers)
       - logo: images/tekton.png
         name: Tekton
         subtitle: Kuberntes native piplines
+        tag: pipelines
         target: _blank
         url: https://$(oc -n ${CICDNS} get route zalenium -o custom-columns=ROUTE:.spec.host --no-headers)/k8s/ns/${CICDNS}/tekton.dev~v1alpha1~Pipeline
       name: Automation
@@ -75,6 +79,7 @@ data:
       - logo: assets/tools/grafana.png
         name: Grafana
         subtitle: Metric analytics & dashboards
+        tag: metrics, dashboard
         target: _blank
         url: http://$(oc -n ${CICDNS} get route argocd-grafana -o custom-columns=ROUTE:.spec.host --no-headers)
       - logo: https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2017/11/prometheus_logo.png
@@ -101,7 +106,7 @@ data:
       - logo: https://avatars0.githubusercontent.com/u/11725037?s=200&v=4
         name: Wekan
         subtitle: Wekan Tasks
-        tag: Wekan, kanban
+        tag: kanban
         target: _blank
         url: https://$(oc -n ${CICDNS} get route wekan -o custom-columns=ROUTE:.spec.host --no-headers)
       - logo: https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0b2e8ea823612a322cf779c35039d756/mattermost.png
