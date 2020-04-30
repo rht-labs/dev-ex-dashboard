@@ -1,9 +1,9 @@
-# Homer
+# developer experience dashboard
 A dead simple static **HOM**epage for your serv**ER** to keep your services on hand, from a simple `yaml` configuration file.
 
 We are using this dashboard for our next generation developer experience [ubiquitous journey](https://github.com/rht-labs/ubiquitous-journey)
 
-Kindly forked from [here](https://raw.github.com/bastienwirtz/homer)
+Kindly forked from Homer [here](https://raw.github.com/bastienwirtz/homer)
 
 **Check out the live demo [here](https://homer-demo.netlify.com/).**
 
@@ -16,7 +16,7 @@ It supports keyboard shortcuts:
 
 If you need authentication support, you're on your own (it can be secured using a web server auth module or exposing it only through a VPN network / SSH tunnel, ...)
 
-![screenshot] (screenshot.png)
+![screenshot](screenshot.png)
 
 ## Roadmap
 
