@@ -7,8 +7,7 @@ CRWNS=crw
 HOMERNS=labs-ci-cd
 OWNCLOUDNS=owncloud
 
-payload="$(mktemp)"
-cat <<EOF >"${payload}"
+cat <<EOF | oc apply -n ${HOMERNS} -f-
 apiVersion: v1
 data:
   conf: |
@@ -137,9 +136,9 @@ kind: ConfigMap
 metadata:
   name: dev-ex-dashboard-environment
   namespace: ${HOMERNS}
+  annotaiotns:
+    argocd.argoproj.io/sync-options: Prune=false  
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
 EOF
-oc delete -f ${payload}
-oc apply -f ${payload}
 oc delete pod -lapp=dev-ex-dashboard -n ${HOMERNS}
 oc wait pod -lapp=dev-ex-dashboard  --for=condition=Ready --timeout=300s
-rm -f ${payload}
