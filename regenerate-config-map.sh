@@ -1,11 +1,14 @@
 #!/bin/bash
 
+#set -x
+
 CICDNS=labs-ci-cd
 CRWNS=crw
 HOMERNS=labs-ci-cd
 OWNCLOUDNS=owncloud
 
-cat <<EOF | oc apply -n ${HOMERNS} -f-
+payload="$(mktemp)"
+cat <<EOF >"${payload}"
 apiVersion: v1
 data:
   conf: |
@@ -135,6 +138,8 @@ metadata:
   name: dev-ex-dashboard-environment
   namespace: ${HOMERNS}
 EOF
-
+oc delete -f ${payload}
+oc apply -f ${payload}
 oc delete pod -lapp=dev-ex-dashboard -n ${HOMERNS}
 oc wait pod -lapp=dev-ex-dashboard  --for=condition=Ready --timeout=300s
+rm -f ${payload}
