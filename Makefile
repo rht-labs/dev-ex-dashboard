@@ -1,6 +1,6 @@
 # Image URL to use all building/pushing image targets
 REGISTRY ?= quay.io
-REPOSITORY ?= $(REGISTRY)/eformat/dev-ex-dashboard
+REPOSITORY ?= $(REGISTRY)/rht-labs/dev-ex-dashboard
 
 IMG := $(REPOSITORY):latest
 
