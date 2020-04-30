@@ -138,6 +138,9 @@ metadata:
   namespace: ${HOMERNS}
   labels:
     rht-labs.com/uj: dev-ex-dashboard
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false  
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
 EOF
 oc delete pod -lapp=dev-ex-dashboard -n ${HOMERNS}
 oc wait pod -lapp=dev-ex-dashboard  --for=condition=Ready --timeout=300s
