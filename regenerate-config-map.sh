@@ -136,9 +136,8 @@ kind: ConfigMap
 metadata:
   name: dev-ex-dashboard-environment
   namespace: ${HOMERNS}
-  annotaiotns:
-    argocd.argoproj.io/sync-options: Prune=false  
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  labels:
+    rht-labs.com/uj: dev-ex-dashboard
 EOF
 oc delete pod -lapp=dev-ex-dashboard -n ${HOMERNS}
 oc wait pod -lapp=dev-ex-dashboard  --for=condition=Ready --timeout=300s

@@ -648,6 +648,7 @@ body .tile__title {
     position: absolute;
     bottom: 0;
     padding: 10px;
+    color: white;
 }
 
 body .row__inner:hover {
