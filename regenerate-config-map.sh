@@ -2,7 +2,7 @@
 
 CICDNS=labs-ci-cd
 CRWNS=crw
-HOMERNS=homer
+HOMERNS=labs-ci-cd
 OWNCLOUDNS=owncloud
 
 oc apply -n ${HOMERNS} -f- <<EOF
@@ -31,7 +31,7 @@ data:
     services:
     - icon: fas fa-code-branch
       items:
-      - logo: assets/tools/jenkins.png
+      - logo: images/jenkins.jpeg
         name: Jenkins
         subtitle: Continuous integration server
         tag: ci
@@ -76,7 +76,7 @@ data:
       name: Automation
     - icon: fas fa-heartbeat
       items:
-      - logo: assets/tools/grafana.png
+      - logo: images/grafana.png
         name: Grafana
         subtitle: Metric analytics & dashboards
         tag: metrics, dashboard
@@ -137,3 +137,4 @@ metadata:
 EOF
 
 oc delete pod -lapp=dev-ex-dashboard -n ${HOMERNS}
+oc wait pod -lapp=dev-ex-dashboard  --for=condition=Ready --timeout=300s
