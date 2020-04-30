@@ -1,4 +1,4 @@
-# developer experience dashboard
+# Developer Experience Dashboard
 A dead simple static **HOM**epage for your serv**ER** to keep your services on hand, from a simple `yaml` configuration file.
 
 We are using this dashboard for our next generation developer experience [ubiquitous journey](https://github.com/rht-labs/ubiquitous-journey)
