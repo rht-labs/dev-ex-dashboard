@@ -128,7 +128,7 @@ data:
         subtitle: Share your documents
         tag: sharing, documents
         target: _blank
-        url: https://$(oc -n ${OWNCLOUDNS} get route owncloud -o custom-columns=ROUTE:.spec.host --no-headers)
+        url: https://$(oc -n ${OWNCLOUDNS} get route -lapp.kubernetes.io/name=owncloud -o custom-columns=ROUTE:.spec.host --no-headers)
       name: Project Management
     subtitle: Red Hat Open Innovation Labs
     title: "\U0001F984 Developer Experience \U0001F525"
@@ -143,4 +143,4 @@ metadata:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
 EOF
 oc delete pod -lapp=dev-ex-dashboard -n ${HOMERNS}
-oc wait pod -lapp=dev-ex-dashboard  --for=condition=Ready --timeout=300s
+oc -n ${HOMERNS} wait pod -lapp=dev-ex-dashboard --for=condition=Ready --timeout=300s
