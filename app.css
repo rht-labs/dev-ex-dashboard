@@ -542,7 +542,7 @@ body a:hover {
 
 body .row {
     overflow-x: scroll;
-    overflow-y: scroll;
+    overflow-y: hidden;
     width: 100%;
     height: 270px;
 }
