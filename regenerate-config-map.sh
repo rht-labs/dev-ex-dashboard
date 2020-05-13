@@ -5,7 +5,6 @@
 CICDNS=labs-ci-cd
 CRWNS=crw
 HOMERNS=labs-ci-cd
-OWNCLOUDNS=owncloud
 
 cat <<EOF | oc apply -n ${HOMERNS} -f-
 apiVersion: v1
@@ -128,7 +127,7 @@ data:
         subtitle: Share your documents
         tag: sharing, documents
         target: _blank
-        url: https://$(oc -n ${OWNCLOUDNS} get route -lapp.kubernetes.io/name=owncloud -o custom-columns=ROUTE:.spec.host --no-headers)
+        url: https://$(oc -n ${CICDNS} get route -lapp.kubernetes.io/name=owncloud -o custom-columns=ROUTE:.spec.host --no-headers)
       name: Project Management
     subtitle: Red Hat Open Innovation Labs
     title: "\U0001F984 Developer Experience \U0001F525"
