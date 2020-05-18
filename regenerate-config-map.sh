@@ -73,7 +73,7 @@ data:
         subtitle: Kuberntes native piplines
         tag: pipelines
         target: _blank
-        url: https://$(oc whoami --show-console)/k8s/ns/${CICDNS}/tekton.dev~v1alpha1~Pipeline
+        url: $(oc whoami --show-console)/k8s/ns/${CICDNS}/tekton.dev~v1alpha1~Pipeline
       name: Automation
     - icon: fas fa-heartbeat
       items:
