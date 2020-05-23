@@ -74,6 +74,12 @@ data:
         tag: pipelines
         target: _blank
         url: $(oc whoami --show-console)/k8s/ns/${CICDNS}/tekton.dev~v1alpha1~Pipeline
+      - logo: images/vault.png
+        name: HashiCorp Vault
+        subtitle: Store secrets and tokens securely
+        tag: secrets
+        target: _blank
+        url: https://$(oc -n ${CICDNS} get route vault -o custom-columns=ROUTE:.spec.host --no-headers)
       name: Automation
     - icon: fas fa-heartbeat
       items:

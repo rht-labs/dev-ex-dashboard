@@ -90,6 +90,12 @@ services:
         tag: pipelines
         target: _blank
         url: 'https://console-openshift-console.apps.hivec.sandbox1604.opentlc.com/k8s/ns/labs-ci-cd/tekton.dev~v1alpha1~Pipeline'
+      - logo: images/vault.png
+        name: HashiCorp Vault
+        subtitle: Store secrets and tokens securely
+        tag: secrets
+        target: _blank
+        url: https://vault-labs-ci-cd.apps.hivec.sandbox1604.opentlc.com
   - name: "Monitoring"
     icon: "fas fa-heartbeat"
     items:
