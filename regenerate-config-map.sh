@@ -21,8 +21,8 @@ data:
       target: _blank
       url: https://github.com/rht-labs/ubiquitous-journey
     - icon: fab fa-github
-      name: Open Management Portal
-      url: https://github.com/rht-labs/open-management-portal
+      name: LodeStar
+      url: https://github.com/rht-labs/lodestar-deployment
     - icon: fab fa-github
       name: Helm Charts
       url: https://github.com/rht-labs/helm-charts
