@@ -5,6 +5,7 @@
 CICDNS=labs-ci-cd
 CRWNS=crw
 HOMERNS=labs-ci-cd
+PELORUS=pelorus
 
 cat <<EOF | oc apply -n ${HOMERNS} -f-
 apiVersion: v1
@@ -107,6 +108,12 @@ data:
         tag: api
         target: _blank
         url: http://$(oc -n ${CICDNS} get route pact-broker -o custom-columns=ROUTE:.spec.host --no-headers)
+      - logo: https://raw.githubusercontent.com/redhat-cop/pelorus/master/media/Icon-Pelorus-A-Standard-RGB_smaller.png
+        name: Pelorus
+        subtitle: Metrics Driven Transformation dashboards
+        tag: metrics, dashboards
+        target: _blank
+        url: https://$(oc -n ${PELORUS} get route grafana-route -o custom-columns=ROUTE:.spec.host --no-headers)
       name: Monitoring
     - icon: fas fa-tasks
       items:
