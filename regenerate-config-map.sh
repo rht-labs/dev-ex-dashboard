@@ -108,7 +108,7 @@ data:
         tag: api
         target: _blank
         url: http://$(oc -n ${CICDNS} get route pact-broker -o custom-columns=ROUTE:.spec.host --no-headers)
-      - logo: https://raw.githubusercontent.com/redhat-cop/pelorus/master/media/Icon-Pelorus-A-Standard-RGB_smaller.png
+      - logo: https://raw.githubusercontent.com/redhat-cop/pelorus/master/docs/img/Icon-Pelorus-A-Standard-RGB_smaller.png
         name: Pelorus
         subtitle: Metrics Driven Transformation dashboards
         tag: metrics, dashboards
