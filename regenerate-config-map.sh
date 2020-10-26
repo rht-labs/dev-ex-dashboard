@@ -3,7 +3,7 @@
 #set -x
 
 CICDNS=labs-ci-cd
-CRWNS=crw
+CRWNS=openshift-workspaces
 HOMERNS=labs-ci-cd
 PELORUS=pelorus
 
